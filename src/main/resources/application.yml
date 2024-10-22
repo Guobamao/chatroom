@@ -6,7 +6,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   security:
     filter:
-      allow-origin: http://192.168.137.1:5173
+      allow-origin: http://localhost:5173
 
 server:
   port: 8081
