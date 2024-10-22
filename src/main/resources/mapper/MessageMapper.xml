@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.scauzj.chatroom.mapper.MessageMapper">
+    <insert id="insertMessage">
+        insert into db_message(send_id, to_id, message) values (#{sendId}, #{toId}, #{message})
+    </insert>
+    <select id="getLastMessageById" resultType="java.lang.String">
+        select message from db_message where ((send_id = #{sendId} and to_id = #{toId}) or (send_id = #{toId} and to_id = #{sendId})) and
+            id = (select max(id) from db_message where ((send_id = #{sendId} and to_id = #{toId}) or (send_id = #{toId} and to_id = #{sendId})))
+    </select>
+    <select id="selectMessageList" resultType="com.scauzj.chatroom.domain.Message">
+        select * from db_message where send_id = #{sendId} and to_id = #{toId} or send_id = #{toId} and to_id = #{sendId}
+    </select>
+    <select id="selectGroupMessageList" resultType="com.scauzj.chatroom.domain.Message">
+        select * from db_message where to_id = 0
+    </select>
+    <select id="getGroupLastMessage" resultType="java.lang.String">
+        select message from db_message where to_id = 0 and id = (select max(id) from db_message where to_id = 0)
+    </select>
+</mapper>
