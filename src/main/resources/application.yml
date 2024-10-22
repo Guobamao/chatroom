@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    username: root
+    password: 617854
+    url: jdbc:mysql://localhost:3306/chat
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  security:
+    filter:
+      allow-origin: http://192.168.137.1:5173
+
+server:
+  port: 8081
+
+# MyBatis配置
+mybatis:
+  # 搜索指定包含的实体类
+  type-aliases-package: com.scauzj.chatroom.domain
+  # 配置映射文件
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    # 开启驼峰命名自动映射
+    map-underscore-to-camel-case: true
