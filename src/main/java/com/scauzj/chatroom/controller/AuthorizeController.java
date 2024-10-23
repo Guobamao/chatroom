@@ -18,6 +18,9 @@ public class AuthorizeController {
 
     @PostMapping("/register")
     public AjaxResult register(@RequestBody Account account) {
+        if (accountService.findAccountByUsername(account.getUsername()) != null) {
+            return AjaxResult.error("用户名已存在");
+        }
         return accountService.registerAccount(account) ? AjaxResult.success() : AjaxResult.error("注册失败");
     }
 }
