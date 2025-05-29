@@ -4,6 +4,12 @@
 
 本项目是一个基于Java WebSocket的实时聊天网页系统，采用Spring Boot、MyBatis、Spring Security、Vue.js等技术栈。系统支持用户注册、登录、实时消息发送与接收，以及聊天记录查看功能。
 
+**前端项目**
+https://github.com/Guobamao/chatroom-frontend
+
+**后端项目**
+https://github.com/Guobamao/chatroom
+
 ## 技术栈
 
 - **后端**：
