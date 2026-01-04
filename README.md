@@ -49,7 +49,7 @@ https://github.com/Guobamao/chatroom
 
 2. **配置数据库**
 
-   在MySQL中创建数据库chat，并执行 `db.sql` 文件中的建表语句。
+   在MySQL中创建数据库chat，并执行 `chat.sql` 文件中的建表语句。
 
 3. **后端项目**
    - 修改 `application.yml` 配置文件，设置数据库连接信息。
